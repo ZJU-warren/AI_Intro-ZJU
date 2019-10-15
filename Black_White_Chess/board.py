@@ -1,7 +1,4 @@
-#!/usr/bin/Anaconda3/python
-# -*- coding: utf-8 -*-
-
-
+import sys; sys.path.append('../')
 class Board(object):
     """
     Board 黑白棋棋盘，规格是8*8，黑棋用 X 表示，白棋用 O 表示，未落子时用 . 表示。

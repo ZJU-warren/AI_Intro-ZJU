@@ -1,6 +1,4 @@
-#!/usr/bin/Anaconda3/python
-# -*- coding: utf-8 -*- 
-
+import sys; sys.path.append('../')
 
 class Player(object):
     """
@@ -31,3 +29,7 @@ class Player(object):
         """
         flipped_pos = board._move(action, self.color)
         return flipped_pos
+
+
+if __name__ == '__main__':
+    pass

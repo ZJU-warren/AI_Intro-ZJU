@@ -1,9 +1,7 @@
-# !/usr/bin/Anaconda3/python
-# -*- coding: utf-8 -*-
-
+import sys; sys.path.append('../')
 from func_timeout import func_timeout, FunctionTimedOut
 import datetime
-from board import Board
+from Black_White_Chess.board import Board
 
 
 class Game(object):
