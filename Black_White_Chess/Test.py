@@ -4,19 +4,22 @@ import Black_White_Chess.PlayerSet.Random_Player as RPlayer
 import Black_White_Chess.PlayerSet.MiniMax_Player as MPlayer
 import Black_White_Chess.game as Game
 import Black_White_Chess.PlayerSet.Human_Player as HPlayer
+import Black_White_Chess.PlayerSet.AlphaBeta_Player as ABplayer
 import time
 import os
 
 
 def Main():
+    start = time.time()
     # 初始化两个随机玩家
-    rPlayer1 = MPlayer.MiniMaxPlayer('X')
+    # rPlayer1 = MPlayer.MiniMaxPlayer('X')
+    rPlayer1 = ABplayer.AlphaBetaPlayer('X')
     # rPlayer1 = RPlayer.RandomPlayer('X')
     rPlayer2 = RPlayer.RandomPlayer('O')
 
     totalSet = [0, 0, 0]
     diffSet = [0, 0, 0]
-    N = 100
+    N = 300
     for i in range(N):
         # 初始化游戏
         game = Game.Game(rPlayer1, rPlayer2)
@@ -38,6 +41,9 @@ def Main():
 
     print('winRatio:', totalSet[0]/N)
     print('difRatio:', diffSet[0]/N)
+
+    end = time.time()
+    print('time cost:', end - start)
 
 
 if __name__ == '__main__':
