@@ -1,0 +1,28 @@
+Alpha-beta:
+    {opt_list, from 54, first, 300}
+    res: [245, 41, 14]
+    dif: [7177, 600, 0]
+    winRatio: 0.8166666666666667
+    difRatio: 23.923333333333332
+    time cost: 866.4147033691406
+
+    {org_list, from 54, first, 300}
+    res: [199, 92, 9]
+    dif: [5889, 1670, 0]
+    winRatio: 0.6633333333333333
+    difRatio: 19.63
+    time cost: 1272.1203801631927
+
+    {org_list, from 52, first, 300}
+    res: [238, 58, 4]
+    dif: [6699, 599, 0]
+    winRatio: 0.7933333333333333
+    difRatio: 22.33
+    time cost: 5674.915958404541
+
+    {opt_list, from 52, first, 10}
+    res: [10, 0, 0]
+    dif: [306, 0, 0]
+    winRatio: 1.0
+    difRatio: 30.6
+    time cost: 201.84990906715393

@@ -5,21 +5,25 @@ import Black_White_Chess.PlayerSet.MiniMax_Player as MPlayer
 import Black_White_Chess.game as Game
 import Black_White_Chess.PlayerSet.Human_Player as HPlayer
 import Black_White_Chess.PlayerSet.AlphaBeta_Player as ABplayer
+import Black_White_Chess.PlayerSet.MCTree_Player as MCTPlayer
 import time
 import os
 
 
 def Main():
     start = time.time()
+
     # 初始化两个随机玩家
     # rPlayer1 = MPlayer.MiniMaxPlayer('X')
-    rPlayer1 = ABplayer.AlphaBetaPlayer('X')
+    # rPlayer1 = ABplayer.AlphaBetaPlayer('X')
+    rPlayer1 = MCTPlayer.MCTreePlayer('X')          # !!! some bug
     # rPlayer1 = RPlayer.RandomPlayer('X')
-    rPlayer2 = RPlayer.RandomPlayer('O')
+    # rPlayer2 = RPlayer.RandomPlayer('O')
+    rPlayer2 = ABplayer.AlphaBetaPlayer('O')
 
     totalSet = [0, 0, 0]
     diffSet = [0, 0, 0]
-    N = 300
+    N = 1000
     for i in range(N):
         # 初始化游戏
         game = Game.Game(rPlayer1, rPlayer2)
@@ -48,3 +52,4 @@ def Main():
 
 if __name__ == '__main__':
     Main()
+    # print([[] for _ in range(8)])

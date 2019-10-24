@@ -40,6 +40,7 @@ class AlphaBetaPlayer(Player):
                 common_list.append(each)
         common_list.extend(bad_list)
         good_list.extend(common_list)
+
         # print(good_list)
         # time.sleep(2)
         return good_list
@@ -125,7 +126,7 @@ class AlphaBetaPlayer(Player):
         print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
         sum = board.count(self.flipColor()) + board.count(self.color)
         print('{}', sum)
-        if sum < 54:
+        if sum < 50:
             action = self.random_choice(board)
         else:
             action = self.alpha_beta_decision(board)
