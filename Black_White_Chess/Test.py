@@ -2,7 +2,6 @@ import sys; sys.path.append('../')
 import Black_White_Chess.board as Board
 import Black_White_Chess.PlayerSet.Random_Player as RPlayer
 import Black_White_Chess.PlayerSet.MiniMax_Player as MPlayer
-import Black_White_Chess.PlayerSet.AlphaBeta_Player as ABPlayer
 import Black_White_Chess.game as Game
 import Black_White_Chess.PlayerSet.Human_Player as HPlayer
 import time
@@ -11,7 +10,6 @@ import os
 
 def Main():
     # 初始化两个随机玩家
-    # rPlayer1 = ABPlayer.AlphaBetaPlayer('X')
     rPlayer1 = MPlayer.MiniMaxPlayer('X')
     # rPlayer1 = RPlayer.RandomPlayer('X')
     rPlayer2 = RPlayer.RandomPlayer('O')

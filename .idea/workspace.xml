@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcd7575e-37e6-479e-b362-1916f8b7a7cf" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/Black_White_Chess/PlayerSet/Human_Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Black_White_Chess/.ipynb_checkpoints/main-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/.ipynb_checkpoints/main-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Black_White_Chess/RandomPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/PlayerSet/Random_Player.py" afterDir="false" />
@@ -10,6 +11,14 @@
       <change beforePath="$PROJECT_DIR$/Black_White_Chess/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/PlayerSet/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Black_White_Chess/results/_README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/results/_README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Black_White_Chess/results/tb_results/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/results/tb_results/README.md" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/Black_White_Chess/RandomPlayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Black_White_Chess/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Black_White_Chess/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Black_White_Chess/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Black_White_Chess/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Black_White_Chess/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Black_White_Chess/player.py" afterDir="false" />
+>>>>>>> 1ddf82042985a4758a8ab8959a0bdebe7206e9d0
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +26,139 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+=======
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Black_White_Chess/player.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="34" selection-start-column="34" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Black_White_Chess/RandomPlayer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Black_White_Chess/Test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Black_White_Chess/board.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="112" column="40" lean-forward="true" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
+              <folding>
+                <element signature="e#79#143#1" />
+                <element signature="e#177#469#0" />
+                <element signature="e#177#208#1" />
+                <element signature="e#513#631#0" />
+                <element signature="e#513#597#1" />
+                <element signature="e#697#1947#0" />
+                <element signature="e#697#860#1" />
+                <element signature="e#897#926#0" />
+                <element signature="e#1046#1110#0" />
+                <element signature="e#1171#1589#0" />
+                <element signature="e#1616#1947#0" />
+                <element signature="e#1985#2299#0" />
+                <element signature="e#1985#2124#1" />
+                <element signature="e#2182#2278#0" />
+                <element signature="e#2217#2278#0" />
+                <element signature="e#2335#3075#0" />
+                <element signature="e#2335#2429#1" />
+                <element signature="e#2531#2769#0" />
+                <element signature="e#2566#2769#0" />
+                <element signature="e#2820#2873#0" />
+                <element signature="e#2926#2979#0" />
+                <element signature="e#3033#3075#0" />
+                <element signature="e#3121#3673#0" />
+                <element signature="e#3121#3270#1" />
+                <element signature="e#3444#3492#0" />
+                <element signature="e#3719#4710#0" />
+                <element signature="e#3719#3875#1" />
+                <element signature="e#4166#4408#0" />
+                <element signature="e#4211#4408#0" />
+                <element signature="e#4354#4408#0" />
+                <element signature="e#4452#4622#0" />
+                <element signature="e#4632#4652#0" />
+                <element signature="e#4779#5477#0" />
+                <element signature="e#4779#4929#1" />
+                <element signature="e#5521#6956#0" />
+                <element signature="e#5521#5625#1" />
+                <element signature="e#6157#6271#0" />
+                <element signature="e#6298#6418#0" />
+                <element signature="e#6455#6555#0" />
+                <element signature="e#6582#6710#0" />
+                <element signature="e#7008#7704#0" />
+                <element signature="e#7008#7123#1" />
+                <element signature="e#7326#7568#0" />
+                <element signature="e#7371#7568#0" />
+                <element signature="e#7514#7568#0" />
+                <element signature="e#7754#9420#0" />
+                <element signature="e#7754#7883#1" />
+                <element signature="e#7892#7934#0" />
+                <element signature="e#8159#8247#0" />
+                <element signature="e#8428#9151#0" />
+                <element signature="e#8500#9151#0" />
+                <element signature="e#8500#8543#0" />
+                <element signature="e#8645#9151#0" />
+                <element signature="e#8762#9151#0" />
+                <element signature="e#8808#8847#0" />
+                <element signature="e#9240#9420#0" />
+                <element signature="e#9287#9420#0" />
+                <element signature="e#9463#9792#0" />
+                <element signature="e#9463#9567#1" />
+                <element signature="e#9698#9792#0" />
+                <element signature="e#9835#10094#0" />
+                <element signature="e#9835#9943#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Black_White_Chess/game.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Black_White_Chess/game.py" />
+        <option value="$PROJECT_DIR$/Black_White_Chess/board.py" />
+        <option value="$PROJECT_DIR$/Black_White_Chess/player.py" />
+        <option value="$PROJECT_DIR$/Black_White_Chess/RandomPlayer.py" />
+        <option value="$PROJECT_DIR$/Black_White_Chess/Test.py" />
+      </list>
+    </option>
+  </component>
+>>>>>>> 1ddf82042985a4758a8ab8959a0bdebe7206e9d0
   <component name="ProjectConfigurationFiles">
     <option name="files">
       <list>
@@ -31,6 +170,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1SdI1MqL0D9zCJic8fhVudfnOcl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,6 +191,46 @@
       <recent name="$PROJECT_DIR$/Black_White_Chess/PlayerSet" />
       <recent name="$PROJECT_DIR$/Black_White_Chess" />
     </key>
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="426" />
+    <option name="y" value="240" />
+    <option name="width" value="1389" />
+    <option name="height" value="789" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Black_White_Chess" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+>>>>>>> 1ddf82042985a4758a8ab8959a0bdebe7206e9d0
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -64,6 +244,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.MiniMax_Player">
     <configuration name="MiniMax_Player" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Project" />
@@ -87,6 +268,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+=======
+  <component name="RunManager" selected="Python.Test">
+>>>>>>> 1ddf82042985a4758a8ab8959a0bdebe7206e9d0
     <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,7 +317,10 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.MiniMax_Player" />
+=======
+>>>>>>> 1ddf82042985a4758a8ab8959a0bdebe7206e9d0
         <item itemvalue="Python.Test" />
         <item itemvalue="Python.board" />
       </list>
@@ -149,6 +336,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571060304777</updated>
+<<<<<<< HEAD
       <workItem from="1571060307039" duration="4288000" />
       <workItem from="1571223879116" duration="44000" />
       <workItem from="1571886832071" duration="13017000" />
@@ -174,4 +362,186 @@
     <SUITE FILE_PATH="coverage/Project$Test.coverage" NAME="Test Coverage Results" MODIFIED="1571895798413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Black_White_Chess" />
     <SUITE FILE_PATH="coverage/Project$board.coverage" NAME="board Coverage Results" MODIFIED="1571060327504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Black_White_Chess" />
   </component>
+=======
+      <workItem from="1571060307039" duration="3822000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3822000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24958494" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Jupyter" weight="0.32937366" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4514039" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="R Packages" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="R Graphics" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24958494" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32937366" />
+      <window_info anchor="bottom" id="Database Changes" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="5" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.3898488" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="R Graphics" order="0" />
+      <window_info anchor="right" id="R Packages" order="1" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project$Test.coverage" NAME="Test Coverage Results" MODIFIED="1571115217157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Black_White_Chess" />
+    <SUITE FILE_PATH="coverage/Project$board.coverage" NAME="board Coverage Results" MODIFIED="1571060327504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Black_White_Chess" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Black_White_Chess/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Black_White_Chess/main.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Black_White_Chess/board.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="112" column="40" lean-forward="true" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
+          <folding>
+            <element signature="e#79#143#1" />
+            <element signature="e#177#469#0" />
+            <element signature="e#177#208#1" />
+            <element signature="e#513#631#0" />
+            <element signature="e#513#597#1" />
+            <element signature="e#697#1947#0" />
+            <element signature="e#697#860#1" />
+            <element signature="e#897#926#0" />
+            <element signature="e#1046#1110#0" />
+            <element signature="e#1171#1589#0" />
+            <element signature="e#1616#1947#0" />
+            <element signature="e#1985#2299#0" />
+            <element signature="e#1985#2124#1" />
+            <element signature="e#2182#2278#0" />
+            <element signature="e#2217#2278#0" />
+            <element signature="e#2335#3075#0" />
+            <element signature="e#2335#2429#1" />
+            <element signature="e#2531#2769#0" />
+            <element signature="e#2566#2769#0" />
+            <element signature="e#2820#2873#0" />
+            <element signature="e#2926#2979#0" />
+            <element signature="e#3033#3075#0" />
+            <element signature="e#3121#3673#0" />
+            <element signature="e#3121#3270#1" />
+            <element signature="e#3444#3492#0" />
+            <element signature="e#3719#4710#0" />
+            <element signature="e#3719#3875#1" />
+            <element signature="e#4166#4408#0" />
+            <element signature="e#4211#4408#0" />
+            <element signature="e#4354#4408#0" />
+            <element signature="e#4452#4622#0" />
+            <element signature="e#4632#4652#0" />
+            <element signature="e#4779#5477#0" />
+            <element signature="e#4779#4929#1" />
+            <element signature="e#5521#6956#0" />
+            <element signature="e#5521#5625#1" />
+            <element signature="e#6157#6271#0" />
+            <element signature="e#6298#6418#0" />
+            <element signature="e#6455#6555#0" />
+            <element signature="e#6582#6710#0" />
+            <element signature="e#7008#7704#0" />
+            <element signature="e#7008#7123#1" />
+            <element signature="e#7326#7568#0" />
+            <element signature="e#7371#7568#0" />
+            <element signature="e#7514#7568#0" />
+            <element signature="e#7754#9420#0" />
+            <element signature="e#7754#7883#1" />
+            <element signature="e#7892#7934#0" />
+            <element signature="e#8159#8247#0" />
+            <element signature="e#8428#9151#0" />
+            <element signature="e#8500#9151#0" />
+            <element signature="e#8500#8543#0" />
+            <element signature="e#8645#9151#0" />
+            <element signature="e#8762#9151#0" />
+            <element signature="e#8808#8847#0" />
+            <element signature="e#9240#9420#0" />
+            <element signature="e#9287#9420#0" />
+            <element signature="e#9463#9792#0" />
+            <element signature="e#9463#9567#1" />
+            <element signature="e#9698#9792#0" />
+            <element signature="e#9835#10094#0" />
+            <element signature="e#9835#9943#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Black_White_Chess/player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="34" selection-start-column="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-2066100795/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="479" column="10" selection-start-line="479" selection-start-column="10" selection-end-line="479" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Black_White_Chess/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="23" column="40" lean-forward="true" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Black_White_Chess/RandomPlayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+>>>>>>> 1ddf82042985a4758a8ab8959a0bdebe7206e9d0
 </project>

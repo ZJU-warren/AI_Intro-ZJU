@@ -2,6 +2,7 @@ import sys; sys.path.append('../')
 import random
 from Black_White_Chess.PlayerSet.player import Player
 # import copy
+import time
 
 
 class MiniMaxPlayer(Player):
@@ -25,45 +26,54 @@ class MiniMaxPlayer(Player):
         action_list = list(board.get_legal_actions(self.flipColor()))
         if len(action_list) == 0:
             # print('-----------------------------')
-            return None, board.count(self.color)
+            return board.count(self.color)
 
-        bestAction = None
         minScore = 1000
         for each in action_list:
             # min最大值
             flipSet = board._move(each, self.flipColor())
-            action, score = self.max_value(board)
+            score = self.max_value(board)
             board.backpropagation(each, flipSet, self.flipColor())
 
             # 更新最优解
             if minScore > score:
                 minScore = score
-                bestAction = each
-        return bestAction, minScore
+        return minScore
 
     # max
-    def max_value(self, board):
+    def max_value(self, board, flag=False):
         action_list = list(board.get_legal_actions(self.color))
         if len(action_list) == 0:
             # print('+++++++++++++++++++++++++++++')
-            return None, board.count(self.color)
+            return board.count(self.color)
 
-        bestAction = None
         maxScore = -1000
         for each in action_list:
             # min最大值
             flipSet = board._move(each, self.color)
-            action, score = self.min_value(board)
+            score = self.min_value(board)
+            board.backpropagation(each, flipSet, self.color)
+            # 更新最优解
+            if maxScore < score:
+                maxScore = score
+        return maxScore
+
+    # minimax搜索
+    def minimax_decision(self, board):
+        bestAction = None
+        maxScore = -1000
+
+        action_list = list(board.get_legal_actions(self.color))
+        for each in action_list:
+            # min最大值
+            flipSet = board._move(each, self.color)
+            score = self.min_value(board)
             board.backpropagation(each, flipSet, self.color)
             # 更新最优解
             if maxScore < score:
                 maxScore = score
                 bestAction = each
-        return bestAction, maxScore
 
-    # minimax搜索
-    def minimax_decision(self, board):
-        bestAction, maxScore = self.max_value(board)
         return bestAction
 
     def random_choice(self, board):
@@ -88,7 +98,7 @@ class MiniMaxPlayer(Player):
         print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
         sum = board.count(self.flipColor()) + board.count(self.color)
         print('{}', sum)
-        if sum < 58:
+        if sum < 45:
             action = self.random_choice(board)
         else:
             action = self.minimax_decision(board)
