@@ -51,8 +51,8 @@ class MCTreePlayer(Player):
     def Expand(self, v, board, action_list, nodeColor):
         for each in action_list:
             flipSet = board._move(each, nodeColor)
-            node = Node(board._board, v, each)
-            board.backpropagation(each, flipSet, self.color)
+            node = Node(board._board, v, each, nodeColor)
+            board.backpropagation(each, flipSet, nodeColor)
 
             flag = True
             for child in v.child:
@@ -63,6 +63,8 @@ class MCTreePlayer(Player):
             if flag:
                 v.child.append(node)
                 return node
+
+        print('some wrong here:', 0/0)
         return None
 
     def BestChild(self, node, c=2.4):
@@ -79,35 +81,35 @@ class MCTreePlayer(Player):
         colorSet = [self.color, self.flipColor()]
         board = Board.Board()
         board._board = v.Decode()
-        deep = 1
-        while len(self.OptList(board, colorSet[1 - deep])) != 0:
-            action_list = self.OptList(board, colorSet[1 - deep])
-            if len(action_list) > len(v.child):
-                return self.Expand(v, board, action_list, colorSet[1 - deep])
+        deep = 0
+        action_list = self.OptList(board, colorSet[deep])
+        while len(action_list) != 0:                                            # when v is not terminal
+            if len(action_list) > len(v.child):                                 # v not fully expanded
+                return self.Expand(v, board, action_list, colorSet[deep])
             else:
                 v = self.BestChild(v)
-            deep = 1 - deep
-            board._board = v.Decode()
+                deep = 1 - deep
+                board._board = v.Decode()
+                action_list = self.OptList(board, colorSet[deep])
         return v
 
     def DefaultPolicy(self, node):
         board = Board.Board()
         colorSet = [self.color, self.flipColor()]
-        deep = 0
-
-        while node.isEnd:
-            board._board = node.Decode()
-            action_list = list(board.get_legal_actions(colorSet[1 - deep]))
-            if len(action_list) == 0:
-                break
-            else:
-                action = random.choice(action_list)
-
-            flipSet = board._move(action, colorSet[1 - deep])
-            node = Node(board._board, node, action)
-            board.backpropagation(action, flipSet, colorSet[1 - deep])
+        deep = 1 if node.color == self.color else 0                     # 下一步棋颜色
 
         board._board = node.Decode()
+        action_list = list(board.get_legal_actions(colorSet[deep]))
+
+        while len(action_list) > 0:
+            action = random.choice(action_list)
+            # 转移
+            board._move(action, colorSet[deep])
+            # node = Node(board._board, node, action, colorSet[deep])
+            # board.backpropagation(action, flipSet, colorSet[deep])
+            action_list = list(board.get_legal_actions(colorSet[deep]))
+
+        # board._board = node.Decode()
         return board.count(self.color)
 
     def BackUp(self, node, reward):
@@ -118,23 +120,14 @@ class MCTreePlayer(Player):
 
     # MCTree搜索
     def UCTSearch(self, board):
-        root = Node(board._board, None, None)
-        for i in range(100):       # 枚举1000次
-            # print('----%d----' % i)
+        root = Node(board._board, None, None, self.flipColor())
+        for i in range(10):                        # 枚举1000次
             node = self.TreePolicy(root)
             reward = self.DefaultPolicy(node)
             self.BackUp(node, reward)
         bestAction = self.BestChild(root, 0).action
         return bestAction
 
-    def random_choice(self, board):
-        # 用 list() 方法获取所有合法落子位置坐标列表
-        action_list = self.OptList(board, self.color)
-        # 如果 action_list 为空，则返回 None,否则从中选取一个随机元素，即合法的落子坐标
-        if len(action_list) == 0:
-            return None
-        else:
-            return action_list[0]
 
     def get_move(self, board):
         """
@@ -149,10 +142,14 @@ class MCTreePlayer(Player):
         # print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
         sum = board.count(self.flipColor()) + board.count(self.color)
         # print('{}', sum)
-        if sum < 10:
-            action = self.random_choice(board)
-        else:
-            action = self.UCTSearch(board)
+        action_list = self.OptList(board, self.color)
+        if len(action_list) == 0:
+            return None
+        # if sum < 40:
+        #     action = action_list[0]
+        # else:
+        #     action = self.UCTSearch(board)
+        action = self.UCTSearch(board)
         # print('_________________________________________________', action)
         # while True:
         #     x = input('is END?')

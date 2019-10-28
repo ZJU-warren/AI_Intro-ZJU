@@ -18,12 +18,13 @@ def Main():
     # rPlayer1 = ABplayer.AlphaBetaPlayer('X')
     rPlayer1 = MCTPlayer.MCTreePlayer('X')          # !!! some bug
     # rPlayer1 = RPlayer.RandomPlayer('X')
+
     # rPlayer2 = RPlayer.RandomPlayer('O')
     rPlayer2 = ABplayer.AlphaBetaPlayer('O')
 
     totalSet = [0, 0, 0]
     diffSet = [0, 0, 0]
-    N = 1000
+    N = 10
     for i in range(N):
         # 初始化游戏
         game = Game.Game(rPlayer1, rPlayer2)

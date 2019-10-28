@@ -1,11 +1,12 @@
 class Node:
-    def __init__(self, status, father, action):
-        self.id, self.isEnd = self.Encode(status)
+    def __init__(self, status, father, action, color):
+        self.id = self.Encode(status)
         self.child = []
         self.Q = 0
         self.N = 0
         self.father = father
         self.action = action
+        self.color = color          # 完成本步的颜色
 
     def s2v(self, s):
         if s == 'X': return 1
@@ -19,14 +20,11 @@ class Node:
 
     def Encode(self, status):
         id = 0
-        flag = False
         for i in range(8):
             for j in range(8):
                 bitValue = self.s2v(status[i][j])
                 id = id * 3 + bitValue
-                if bitValue == 0:
-                    flag = True
-        return id, flag
+        return id
 
     def Decode(self):
         value = self.id

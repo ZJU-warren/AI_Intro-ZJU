@@ -126,7 +126,7 @@ class AlphaBetaPlayer(Player):
         print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
         sum = board.count(self.flipColor()) + board.count(self.color)
         print('{}', sum)
-        if sum < 50:
+        if sum < 52:
             action = self.random_choice(board)
         else:
             action = self.alpha_beta_decision(board)

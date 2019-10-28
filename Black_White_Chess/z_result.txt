@@ -26,3 +26,10 @@ Alpha-beta:
     winRatio: 1.0
     difRatio: 30.6
     time cost: 201.84990906715393
+
+    {opt_list, from 50, first, 300}
+    res: [59, 239, 2]               -------- start is too large
+    dif: [2079, 140, 0]
+    winRatio: 0.19666666666666666
+    difRatio: 6.93
+    time cost: 16625.512805700302
