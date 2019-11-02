@@ -6,6 +6,7 @@ import Black_White_Chess.game as Game
 import Black_White_Chess.PlayerSet.Human_Player as HPlayer
 import Black_White_Chess.PlayerSet.AlphaBeta_Player as ABplayer
 import Black_White_Chess.PlayerSet.MCTree_Player as MCTPlayer
+import Black_White_Chess.PlayerSet.Hybrid_Player as HybridPlayer
 import time
 import os
 
@@ -15,16 +16,17 @@ def Main():
 
     # 初始化两个随机玩家
     # rPlayer1 = MPlayer.MiniMaxPlayer('X')
-    # rPlayer1 = ABplayer.AlphaBetaPlayer('X')
-    rPlayer1 = MCTPlayer.MCTreePlayer('X')          # !!! some bug
+    rPlayer1 = ABplayer.AlphaBetaPlayer('X')
+    # rPlayer1 = MCTPlayer.MCTreePlayer('X')
     # rPlayer1 = RPlayer.RandomPlayer('X')
 
     # rPlayer2 = RPlayer.RandomPlayer('O')
-    rPlayer2 = ABplayer.AlphaBetaPlayer('O')
+    # rPlayer2 = ABplayer.AlphaBetaPlayer('O')
+    rPlayer2 = HybridPlayer.HybridPlayer('O')
 
     totalSet = [0, 0, 0]
     diffSet = [0, 0, 0]
-    N = 10
+    N = 1000
     for i in range(N):
         # 初始化游戏
         game = Game.Game(rPlayer1, rPlayer2)

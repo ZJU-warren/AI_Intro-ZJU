@@ -3,7 +3,7 @@ import random
 from Black_White_Chess.PlayerSet.player import Player
 # import copy
 import time
-from Black_White_Chess.PlayerSet.Tree import *
+from Black_White_Chess.PlayerSet.Node import *
 import Black_White_Chess.board as Board
 import math
 
@@ -121,7 +121,7 @@ class MCTreePlayer(Player):
     # MCTree搜索
     def UCTSearch(self, board):
         root = Node(board._board, None, None, self.flipColor())
-        for i in range(10):                        # 枚举1000次
+        for i in range(30):                        # 枚举1000次
             node = self.TreePolicy(root)
             reward = self.DefaultPolicy(node)
             self.BackUp(node, reward)
