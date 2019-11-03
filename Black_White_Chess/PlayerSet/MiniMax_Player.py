@@ -46,7 +46,6 @@ class MiniMaxPlayer(Player):
     def max_value(self, board):
         action_list = list(board.get_legal_actions(self.color))
         if len(action_list) == 0:
-            # print('+++++++++++++++++++++++++++++')
             return None, board.count(self.color)
 
         bestAction = None
@@ -93,8 +92,5 @@ class MiniMaxPlayer(Player):
             action = self.random_choice(board)
         else:
             action = self.minimax_decision(board)
-        # while True:
-        #     x = input('is END?')
-        #     if x == 'END':
-        #         break
+
         return action

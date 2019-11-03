@@ -145,9 +145,9 @@ class Game(object):
             # 显示当前棋盘
 
             # time.sleep(0.2)
-            os.system("clear")
+            # os.system("clear")
 
-            self.board.display(step_time, total_time)
+            # self.board.display(step_time, total_time)
 
             # 根据当前棋盘，判断棋局是否终止
             # 如果当前选手没有合法下棋的位子，则切换选手；如果另外一个选手也没有合法的下棋位置，则比赛停止。
@@ -161,9 +161,9 @@ class Game(object):
                 winner, diff = self.board.get_winner()  # 得到赢家 0,1,2
                 break
 
-        print('\n=====游戏结束!=====\n')
-        self.board.display(step_time, total_time)
-        self.print_winner(winner)
+        # print('\n=====游戏结束!=====\n')
+        # self.board.display(step_time, total_time)
+        # self.print_winner(winner)
 
         # 返回'black_win','white_win','draw',棋子数差
         if winner is not None and diff > -1:

@@ -28,11 +28,14 @@ class AlphaBetaPlayer(Player):
         goodRow = ['1', '8']
         badRow = ['2', '7']
 
+        best_list = []
         good_list = []
         bad_list = []
         common_list = []
         for each in orglist:
-            if each[0] in goodCol or each[1] in goodRow:
+            if each[0] in goodCol and each[1] in goodRow:
+                best_list.append(each)
+            elif each[0] in goodCol or each[1] in goodRow:
                 good_list.append(each)
             elif each[0] in badCol or each[1] in badRow:
                 bad_list.append(each)
@@ -40,10 +43,9 @@ class AlphaBetaPlayer(Player):
                 common_list.append(each)
         common_list.extend(bad_list)
         good_list.extend(common_list)
+        best_list.extend(good_list)
 
-        # print(good_list)
-        # time.sleep(2)
-        return good_list
+        return best_list
 
     # min
     def min_value(self, board, alpha, beta):
@@ -123,9 +125,9 @@ class AlphaBetaPlayer(Player):
             player_name = '黑棋'
         else:
             player_name = '白棋'
-        print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
+        # print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
         sum = board.count(self.flipColor()) + board.count(self.color)
-        print('{}', sum)
+        # print('{}', sum)
         if sum < 52:
             action = self.random_choice(board)
         else:

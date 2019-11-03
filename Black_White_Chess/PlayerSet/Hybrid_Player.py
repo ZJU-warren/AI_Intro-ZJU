@@ -31,11 +31,14 @@ class HybridPlayer(Player):
         goodRow = ['1', '8']
         badRow = ['2', '7']
 
+        best_list = []
         good_list = []
         bad_list = []
         common_list = []
         for each in orglist:
-            if each[0] in goodCol or each[1] in goodRow:
+            if each[0] in goodCol and each[1] in goodRow:
+                best_list.append(each)
+            elif each[0] in goodCol or each[1] in goodRow:
                 good_list.append(each)
             elif each[0] in badCol or each[1] in badRow:
                 bad_list.append(each)
@@ -43,10 +46,9 @@ class HybridPlayer(Player):
                 common_list.append(each)
         common_list.extend(bad_list)
         good_list.extend(common_list)
+        best_list.extend(good_list)
 
-        # print(good_list)
-        # time.sleep(2)
-        return good_list
+        return best_list
 
     # min
     def min_value(self, board, alpha, beta):
@@ -180,7 +182,7 @@ class HybridPlayer(Player):
     # MCTree搜索
     def UCTSearch(self, board):
         root = Node(board._board, None, None, self.flipColor())
-        for i in range(50):                        # 枚举1000次
+        for i in range(300):                        # 枚举1000次
             node = self.TreePolicy(root)
             reward = self.DefaultPolicy(node)
             self.BackUp(node, reward)

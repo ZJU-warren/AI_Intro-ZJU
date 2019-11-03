@@ -9,10 +9,6 @@ import math
 
 
 class MCTreePlayer(Player):
-    """
-    随机玩家, 随机返回一个合法落子位置
-    """
-
     def __init__(self, color):
         """
         继承基类玩家，玩家初始化
@@ -31,11 +27,14 @@ class MCTreePlayer(Player):
         goodRow = ['1', '8']
         badRow = ['2', '7']
 
+        best_list = []
         good_list = []
         bad_list = []
         common_list = []
         for each in orglist:
-            if each[0] in goodCol or each[1] in goodRow:
+            if each[0] in goodCol and each[1] in goodRow:
+                best_list.append(each)
+            elif each[0] in goodCol or each[1] in goodRow:
                 good_list.append(each)
             elif each[0] in badCol or each[1] in badRow:
                 bad_list.append(each)
@@ -43,10 +42,9 @@ class MCTreePlayer(Player):
                 common_list.append(each)
         common_list.extend(bad_list)
         good_list.extend(common_list)
+        best_list.extend(good_list)
 
-        # print(good_list)
-        # time.sleep(2)
-        return good_list
+        return best_list
 
     def Expand(self, v, board, action_list, nodeColor):
         for each in action_list:
@@ -121,7 +119,7 @@ class MCTreePlayer(Player):
     # MCTree搜索
     def UCTSearch(self, board):
         root = Node(board._board, None, None, self.flipColor())
-        for i in range(30):                        # 枚举1000次
+        for i in range(300):                        # 枚举1000次
             node = self.TreePolicy(root)
             reward = self.DefaultPolicy(node)
             self.BackUp(node, reward)

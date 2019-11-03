@@ -12,33 +12,32 @@ import os
 
 
 def Main():
-    start = time.time()
-
     # 初始化两个随机玩家
+    # rPlayer1 = RPlayer.RandomPlayer('X')
     # rPlayer1 = MPlayer.MiniMaxPlayer('X')
     rPlayer1 = ABplayer.AlphaBetaPlayer('X')
     # rPlayer1 = MCTPlayer.MCTreePlayer('X')
-    # rPlayer1 = RPlayer.RandomPlayer('X')
+    # rPlayer1 = HybridPlayer.HybridPlayer('X')
 
-    # rPlayer2 = RPlayer.RandomPlayer('O')
-    # rPlayer2 = ABplayer.AlphaBetaPlayer('O')
     rPlayer2 = HybridPlayer.HybridPlayer('O')
 
     totalSet = [0, 0, 0]
     diffSet = [0, 0, 0]
-    N = 1000
+    N = 10
     for i in range(N):
         # 初始化游戏
-        game = Game.Game(rPlayer1, rPlayer2)
-
+        if i % 2 == 0:
+            game = Game.Game(rPlayer1, rPlayer2)
+        else:
+            game = Game.Game(rPlayer2, rPlayer1)
         # 运行游戏
         result, diff = game.run()
         if result == 'black_win':
-            totalSet[0] += 1
-            diffSet[0] += diff
+            totalSet[i % 2] += 1
+            diffSet[i % 2] += diff
         elif result == 'white_win':
-            totalSet[1] += 1
-            diffSet[1] += diff
+            totalSet[1 - i % 2] += 1
+            diffSet[1 - i % 2] += diff
         else:
             totalSet[2] += 1
             diffSet[2] += diff
@@ -46,11 +45,11 @@ def Main():
     print('res:', totalSet)
     print('dif:', diffSet)
 
-    print('winRatio:', totalSet[0]/N)
-    print('difRatio:', diffSet[0]/N)
+    print('P1 winRatio:', totalSet[0] / N)
+    print('P1 difRatio:', diffSet[0] / N)
+    print('P2 winRatio:', totalSet[1] / N)
+    print('P2 difRatio:', diffSet[1] / N)
 
-    end = time.time()
-    print('time cost:', end - start)
 
 
 if __name__ == '__main__':
