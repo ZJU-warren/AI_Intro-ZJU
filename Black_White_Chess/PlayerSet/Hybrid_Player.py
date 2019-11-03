@@ -184,7 +184,7 @@ class HybridPlayer(Player):
         root = Node(board._board, None, None, self.flipColor())
         for i in range(300):                        # 枚举1000次
             node = self.TreePolicy(root)
-            reward = self.DefaultPolicy(node) / 10
+            reward = self.DefaultPolicy(node)
             self.BackUp(node, reward)
         bestAction = self.BestChild(root, 0).action
         return bestAction
@@ -200,8 +200,9 @@ class HybridPlayer(Player):
         else:
             player_name = '白棋'
         # print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
+
+        # -----------------请实现你的算法代码--------------------------------------
         sum = board.count(self.flipColor()) + board.count(self.color)
-        # print('{}', sum)
         action_list = self.OptList(board, self.color)
         if len(action_list) == 0:
             return None
@@ -209,10 +210,5 @@ class HybridPlayer(Player):
              action = self.UCTSearch(board)
         else:
              action = self.alpha_beta_decision(board)
-        # action = self.UCTSearch(board)
-        # print('_________________________________________________', action)
-        # while True:
-        #     x = input('is END?')
-        #     if x == 'END':
-        #         break
+        # ------------------------------------------------------------------------
         return action

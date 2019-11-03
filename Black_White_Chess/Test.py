@@ -13,17 +13,17 @@ import os
 
 def Main():
     # 初始化两个随机玩家
-    # rPlayer1 = RPlayer.RandomPlayer('X')
+    rPlayer1 = RPlayer.RandomPlayer('X')
     # rPlayer1 = MPlayer.MiniMaxPlayer('X')
     # rPlayer1 = ABplayer.AlphaBetaPlayer('X')
-    rPlayer1 = MCTPlayer.MCTreePlayer('X')
+    # rPlayer1 = MCTPlayer.MCTreePlayer('X')
     # rPlayer1 = HybridPlayer.HybridPlayer('X')
 
     rPlayer2 = HybridPlayer.HybridPlayer('O')
 
     totalSet = [0, 0, 0]
     diffSet = [0, 0, 0]
-    N = 5
+    N = 10
     for i in range(N):
         # 初始化游戏
         if i % 2 == 0:
