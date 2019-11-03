@@ -103,6 +103,7 @@ def noise_mask_image(img, noise_ratio):
         R = np.random.random(img.shape)
         I = np.array(R >= noise_ratio, dtype='double')
     noise_img = img * I
+
     # -----------------------------------------------
     return noise_img
 
@@ -143,62 +144,56 @@ def compute_error(res_img, img):
 
 
 def CalDis(i, j, ci, cj):
-    return max(ci - i, i - ci) + max(cj - j, j -cj)
+    return max(ci - i, i - ci) + max(cj - j, j - cj)
 
 
-# def Predict(i, j, imgSlide, mskSlide, size):
-#     rowU = max(i - size, 0)
-#     rowD = min(i + size, imgSlide.shape[0] - 1)
-#
-#     colL = max(j - size, 0)
-#     colR = min(j + size, imgSlide.shape[1] - 1)
-#
-#     X = []
-#     y = []
-#     totalDis = 0
-#     for ci in range(rowU, rowD + 1):
-#         for cj in range(colL, colR + 1):
-#             if mskSlide[ci, cj] != 0.0:
-#                 X.append([ci, cj])
-#                 dis = size * 2 - CalDis(i, j, ci, cj) + 1   # Laplace
-#                 dis = dis ** 4
-#                 y.append(imgSlide[ci, cj] * dis)
-#                 totalDis += dis
-#
-#     X = np.array(X, ndmin=2)
-#     y = np.array(y, ndmin=1)
-#     if y.shape[0] == 0:
-#         return 0.5
-#     return y.sum()/totalDis
-#
-#     # clf = LinearRegression()
-#     # clf.fit(X, y)
-#
-#     # XPred = np.array([i, j], ndmin=2)
-#     # yPred = clf.predict(XPred)
-#
-#     # return min(max(yPred[0], 0.0), 1.0)
-
-def Predict(i, j, imgSlide, mskSlide, size):
+def LocalValue(i, j, imgSlide, mskSlide, size):
     rowU = max(i - size, 0)
     rowD = min(i + size, imgSlide.shape[0] - 1)
 
     colL = max(j - size, 0)
     colR = min(j + size, imgSlide.shape[1] - 1)
 
-    X = []
     y = []
-    minDis = 1000
-    res = 0.5
+    totalDis = 0
     for ci in range(rowU, rowD + 1):
         for cj in range(colL, colR + 1):
             if mskSlide[ci, cj] != 0.0:
-                X.append([ci, cj])
-                dis = CalDis(i, j, ci, cj)
-                if dis < minDis:
-                    minDis = dis
-                    res = imgSlide[ci, cj]
-    return res
+                dis = size * 2 - CalDis(i, j, ci, cj) + 1  # Laplace
+                dis = dis ** 8
+                totalDis += dis
+                y.append(imgSlide[ci, cj] * dis)
+    y = np.array(y, ndmin=1)
+    if y.shape[0] == 0:
+        return 0.5
+    return y.sum()/totalDis
+
+
+def Predict(i, j, imgSlide, mskSlide, localValue, size):
+    rowD = min(i + size, imgSlide.shape[0] - 1) + 1
+    colR = min(j + size, imgSlide.shape[1] - 1) + 1
+
+    X = []
+    y = []
+    for ci in range(i, rowD):
+        for cj in range(j, colR):
+            # print(type(X))
+            X.append([ci, cj])
+            y.append(localValue[ci, cj])
+
+    X = np.array(X, ndmin=2)
+    y = np.array(y, ndmin=1)
+
+    clf = LinearRegression()
+    clf.fit(X, y)
+
+    for ci in range(i, rowD):
+        for cj in range(j, colR):
+            if mskSlide[ci, cj] == 0.0:
+                XPred = np.array([i, j], ndmin=2)
+                imgSlide[i, j] = clf.predict(XPred)[0]
+                imgSlide[i, j] = min(max(imgSlide[i, j], 0), 1)
+    return rowD, colR, imgSlide[i:i+rowD, j:j+colR]
 
 
 def restore_image(noise_img, size=4):
@@ -215,21 +210,28 @@ def restore_image(noise_img, size=4):
         # print('slide =', c)
         imgSlide = res_img[:, :, c]
         mskSlide = noise_mask[:, :, c]
+        localValue = res_img[:, :, c]
 
         M, N = imgSlide.shape
         for i in range(M):
             for j in range(N):
                 if mskSlide[i, j] == 0.0:
-                    res_img[i, j, c] = Predict(i, j, imgSlide, mskSlide, 2)      # some bugs
+                    # 求localValue
+                    localValue[i, j] = LocalValue(i, j, imgSlide, mskSlide, 2)
+                else:
+                    localValue[i, j] = imgSlide[i, j]
+
+        for i in range(0, M, size):
+            for j in range(0, N, size):
+                rowD, colR, temp = Predict(i, j, imgSlide, mskSlide, localValue, size)
+                res_img[i:i+rowD, j:j+colR, c] = temp
     # ---------------------------------------------------------------
     return res_img
 
 
-
 def Main():
     load_img_path = 'A.png'
-    # load_img_path = '/home/zju-warren/Pictures/org.jpg'
-    img_store_path = 'recover_%f.jpg'
+    load_img_path = '/home/zju-warren/Pictures/1.jpg'
 
     for noiseRatio in [0.4, 0.6, 0.8]:
         # 读取图片\标准化
@@ -241,7 +243,7 @@ def Main():
 
         restoreImg = restore_image(noiseImg)
         plot_image(restoreImg, 'restoreImg')
-        save_image(img_store_path % noiseRatio, restoreImg)
+        # save_image(img_store_path % noiseRatio, restoreImg)
 
         basicErr = compute_error(noiseImg, normImg)
         imgErr = compute_error(restoreImg, normImg)
@@ -251,78 +253,3 @@ def Main():
 
 if __name__ == '__main__':
     Main()
-
-# size = 4
-# mean
-# imgErr = 50.794000, score = 3.451509
-# imgErr = 63.024000, score = 3.298412
-# imgErr = 74.735000, score = 3.184931
-
-# size = 3
-# mean
-# imgErr = 44.532000, score = 3.619779
-# imgErr = 55.381000, score = 3.456651
-# imgErr = 67.700000, score = 3.303139
-
-# size = 2 [r]
-# imgErr = 46.857000, score = 3.724563
-# imgErr = 57.426000, score = 3.512738
-# imgErr = 78.081000, score = 3.163264
-
-# size = 3 [r]
-# imgErr = 58.881000, score = 3.449922
-# imgErr = 64.503000, score = 3.374213
-# imgErr = 72.673000, score = 3.248488
-
-# size = 2 [随机 + 局部加权]
-# imgErr = 32.537000, score = 4.020183
-# imgErr = 41.927000, score = 3.798096
-# imgErr = 64.771000, score = 3.355964
-
-# size = 2 [随机 + 局部加权**2]
-# imgErr = 29.964000, score = 4.125708
-# imgErr = 39.562000, score = 3.869314
-# imgErr = 63.337000, score = 3.382861
-
-# size = 2 [随机 + 局部加权**2]
-# imgErr = 29.928000, score = 4.127289
-# imgErr = 39.472000, score = 3.872277
-# imgErr = 29.928000, score = 4.127289
-# imgErr = 39.472000, score = 3.872277
-# imgErr = 63.789000, score = 3.374418
-
-# size = 2 [随机 + 局部加权**4]
-# imgErr = 26.872000, score = 4.264597
-# imgErr = 36.808000, score = 3.957575
-# imgErr = 63.040000, score = 3.388372
-
-
-'''
-def Predict(i, j, imgSlide, mskSlide, size):
-    size = 2
-    rowU = max(i - size, 0)
-    rowD = min(i + size, imgSlide.shape[0] - 1)
-
-    colL = max(j - size, 0)
-    colR = min(j + size, imgSlide.shape[1] - 1)
-
-    X = []
-    y = []
-    for i in range(rowU, rowD + 1):
-        for j in range(colL, colR + 1):
-            if mskSlide[i, j] != 0.0:
-                X.append([i, j])
-                y.append(imgSlide[i, j])
-    X = np.array(X, ndmin=2)
-    y = np.array(y)
-    if y.shape[0] == 0:
-        return 0.5
-    return y.mean()
-    # clf = LinearRegression()
-    # clf.fit(X, y)
-    #
-    # XPred = np.array([[i, j]])
-    # yPred = clf.predict(XPred)
-    #
-    # return min(max(yPred[0], 0.0), 1.0)
-'''
