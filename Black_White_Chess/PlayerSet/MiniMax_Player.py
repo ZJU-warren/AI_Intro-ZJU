@@ -85,9 +85,9 @@ class MiniMaxPlayer(Player):
             player_name = '黑棋'
         else:
             player_name = '白棋'
-        print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
+        # print("请等一会，对方 {}-{} 正在思考中...".format(player_name, self.color))
         sum = board.count(self.flipColor()) + board.count(self.color)
-        print('{}', sum)
+        # print('{}', sum)
         if sum < 56:
             action = self.random_choice(board)
         else:

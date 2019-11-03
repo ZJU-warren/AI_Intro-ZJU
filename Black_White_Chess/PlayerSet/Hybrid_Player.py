@@ -184,7 +184,7 @@ class HybridPlayer(Player):
         root = Node(board._board, None, None, self.flipColor())
         for i in range(300):                        # 枚举1000次
             node = self.TreePolicy(root)
-            reward = self.DefaultPolicy(node)
+            reward = self.DefaultPolicy(node) / 10
             self.BackUp(node, reward)
         bestAction = self.BestChild(root, 0).action
         return bestAction
@@ -205,7 +205,7 @@ class HybridPlayer(Player):
         action_list = self.OptList(board, self.color)
         if len(action_list) == 0:
             return None
-        if sum < 52:
+        if sum < 54:
              action = self.UCTSearch(board)
         else:
              action = self.alpha_beta_decision(board)

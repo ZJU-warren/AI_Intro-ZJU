@@ -2,7 +2,8 @@ import sys ;sys.path.append('../')
 import Trash_Classifier.DataLinkSet as DLSet
 import Trash_Classifier.DataGenerator as DGen
 
-import Trash_Classifier.Model.Model_Sample_DNN as DNN
+# import Trash_Classifier.Model.Model_Sample_DNN as DNN
+import Trash_Classifier.Model.Model_Sample_CNN as CNN
 from keras.layers import Input, Dense, Flatten, Dropout, Activation
 from keras.layers.normalization import BatchNormalization
 from keras.preprocessing.image import ImageDataGenerator
@@ -47,11 +48,12 @@ def Train():
     # 定义模型输入大小
     input_shape = (384, 512, 3)
     # 训练模型，获取训练过程和训练后的模型
-    res, model = DNN.dnn_model(input_shape, train_generator, validation_generator)
+    res, model = CNN.cnn_model(input_shape, train_generator, validation_generator)
     # 打印模型概况和模型训练总数长
     model.summary()
     print("模型训练总时长：", time.time() - start)
     return res, model
+
 
 def plot_training_history(res):
     """
