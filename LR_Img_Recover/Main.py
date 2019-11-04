@@ -231,7 +231,7 @@ def restore_image(noise_img, size=4):
 
 def Main():
     load_img_path = 'A.png'
-    load_img_path = '/home/zju-warren/Pictures/1.jpg'
+    # load_img_path = '/home/zju-warren/Pictures/1.jpg'
 
     for noiseRatio in [0.4, 0.6, 0.8]:
         # 读取图片\标准化
